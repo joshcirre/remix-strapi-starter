@@ -1,32 +1,26 @@
+import { useLoaderData } from 'remix';
+
+export const loader = async () => {
+    let stores = await fetch('http://localhost:1337/api/stores')
+        .then(res => res.json())
+    const data = stores.data;
+    return data;
+}
+
 export default function Index() {
-  return (
-    <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.4" }}>
-      <h1>Welcome to Remix</h1>
-      <ul>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/blog"
-            rel="noreferrer"
-          >
-            15m Quickstart Blog Tutorial
-          </a>
-        </li>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/jokes"
-            rel="noreferrer"
-          >
-            Deep Dive Jokes App Tutorial
-          </a>
-        </li>
-        <li>
-          <a target="_blank" href="https://remix.run/docs" rel="noreferrer">
-            Remix Docs
-          </a>
-        </li>
-      </ul>
-    </div>
-  );
+    const stores = useLoaderData(loader);
+
+    return (
+        <div>
+            <h1>Hello World</h1>
+            <ul>
+                {stores.map(store => (
+                    <li>
+                        <h3>{store.attributes.name}</h3>
+                        <p>{store.attributes.description}</p>
+                    </li>
+                ))}
+            </ul>
+        </div>
+    );
 }
