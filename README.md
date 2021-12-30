@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Welcome to Remix!
 
 - [Remix Docs](https://remix.run/docs)
@@ -32,3 +33,10 @@ npm run dev
 Open up [http://localhost:3000](http://localhost:3000) and you should be ready to go!
 
 If you're used to using the `vercel dev` command provided by [Vercel CLI](https://vercel.com/cli) instead, you can also use that, but it's not needed.
+=======
+# Remix Jokes App Starter w/ Strapi
+
+A starter using the jokes app tutorial using Remix with a Strapi backend.
+
+This starter uses the [tutorial in the Remix](https://remix.run/docs/en/v1/tutorials/jokes) docs but instead swaps Prisma for a Strapi back-end.
+>>>>>>> e7abca14f69ccce93b337d2bdc3d43833066f8f8
