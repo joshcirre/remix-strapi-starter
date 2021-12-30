@@ -1,4 +1,7 @@
-import { redirect } from "remix";
+import {
+    redirect, Form,
+    useTransition
+} from "remix";;
 
 export const action = async ({ request }) => {
     const form = await request.formData();
@@ -25,26 +28,34 @@ export const action = async ({ request }) => {
 }
 
 export default function NewJokeRoute() {
+    const transition = useTransition();
+
     return (
         <div>
             <p>Add your own hilarious joke</p>
-            <form method="post">
-                <div>
-                    <label>
-                        Name: <input type="text" name="name" />
-                    </label>
-                </div>
-                <div>
-                    <label>
-                        Content: <textarea name="content" />
-                    </label>
-                </div>
-                <div>
-                    <button type="submit" className="button">
-                        Add
-                    </button>
-                </div>
-            </form>
+            <Form method="post">
+                <fieldset
+                    disabled={transition.state === "submitting"}
+                >
+                    <div>
+                        <label>
+                            Name: <input type="text" name="name" />
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            Content: <textarea name="content" />
+                        </label>
+                    </div>
+                    <div>
+                        <button type="submit" className="button">
+                            {transition.state === "submitting"
+                                ? "Adding..."
+                                : "Add Joke"}
+                        </button>
+                    </div>
+                </fieldset>
+            </Form>
         </div>
     );
 }
