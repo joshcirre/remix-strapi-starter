@@ -1,23 +1,23 @@
 {
   "kind": "collectionType",
-  "collectionName": "stores",
+  "collectionName": "jokes",
   "info": {
-    "singularName": "store",
-    "pluralName": "stores",
-    "displayName": "Store"
+    "singularName": "joke",
+    "pluralName": "jokes",
+    "displayName": "Joke",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "name": {
+    "Name": {
       "type": "string",
-      "required": true,
       "unique": true
     },
-    "description": {
-      "type": "richtext"
+    "Content": {
+      "type": "string"
     }
   }
 }
