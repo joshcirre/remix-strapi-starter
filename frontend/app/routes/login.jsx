@@ -1,4 +1,4 @@
-import { Link, useSearchParams, formData } from "remix";
+import { Link, useSearchParams } from "remix";
 import stylesUrl from "../styles/login.css";
 
 export const links = () => {
@@ -13,16 +13,8 @@ export const action = async ({
     const username = form.get("username");
     const password = form.get("password");
     const redirectTo = form.get("redirectTo") || "/jokes";
-    if (
-        typeof loginType !== "string" ||
-        typeof username !== "string" ||
-        typeof password !== "string" ||
-        typeof redirectTo !== "string"
-    ) {
-        return badRequest({
-            formError: `Form not submitted correctly.`
-        });
     }
+
     export default function Login() {
         const [searchParams] = useSearchParams();
         return (
